@@ -51,6 +51,16 @@ public class BasketItem : IValidatableObject
             results.Add(new ValidationResult("Invalid number of units", new[] { "Quantity" }));
         }
 
+        if (Quantity >= 42)
+        {
+            results.Add(new ValidationResult("Quantity must be less than 42", new[] { "Quantity" }));
+        }
+
+        if (Quantity % 6 != 0)
+        {
+            results.Add(new ValidationResult("Quantity must be divisible by 6", new[] { "Quantity" }));
+        }
+
         return results;
     }
 }
